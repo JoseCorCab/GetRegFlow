@@ -17,7 +17,7 @@ while IFS= read line; do
 	output_workflow="`echo $output_path`/`echo $genome | cut -d "." -f 1`"
 	
 	echo -e "\nLaunching GetRegFlow for $genome\n"
-
+ #Comment
 	vars=`echo "
 	\\$genome_file=/mnt/home/users/pab_001_uma/josecordoba/samples/genomics/aquagenet/genomes/$genome,
 	\\$samples_path=/mnt/home/users/pab_001_uma/josecordoba/samples/genomics/aquagenet,
