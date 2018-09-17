@@ -5,12 +5,12 @@
 ##########################################################################################
 ### SEGMENTATION AND INDEXING OF THE REFERENCE GENOME
 ##########################################################################################
-%split_reference){
+split_reference){
 	fasta_distribution.rb -f $genome_file -o genome_sort.fasta -c $chunks
 	?
 	split_fasta_by_chunks.rb genome_sort.fasta part $chunks
 }
-%indexing_reference_[1-$chunks]){
+indexing_reference_[1-$chunks]){
 	module load bowtie/2.2.9
 	part_number=`echo $(( (*) - 1 ))`
 	?
@@ -20,7 +20,7 @@
 ##########################################################################################
 iterate_$samples){
 	?
-	%mapping_[1-$chunks]){
+	mapping_[1-$chunks]){
 		resources: -m '30gb' -c 16
 		module load bowtie/2.2.9
 		module load samtools/1.4
