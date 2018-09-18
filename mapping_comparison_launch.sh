@@ -19,7 +19,7 @@ while IFS= read line; do
 	echo -e "\nLaunching GetRegFlow for $genome\n"
  #Comment
 	vars=`echo "
-	\\$genome_file=/mnt/home/users/pab_001_uma/josecordoba/samples/genomics/aquagenet/genomes/$genome,
+	\\$genome_file='/mnt/home/users/pab_001_uma/josecordoba/samples/genomics/aquagenet/genomes/'$genome,
 	\\$samples_path=/mnt/home/users/pab_001_uma/josecordoba/samples/genomics/aquagenet,
 	\\$samples=[male_aqg_pair;female_1_aqg_pair;female_2_aqg_pair],
 	\\$chunks=40,

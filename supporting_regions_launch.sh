@@ -9,9 +9,6 @@
 output_path=$SCRATCH'/leng/det_sex'
 actual_dir=`pwd`
 
-#if [ ! -s $output_path ]; then 
-#	mkdir -r $output_path
-#fi
 
 while IFS= read line; do
 
@@ -19,7 +16,7 @@ while IFS= read line; do
 	target="targets/"`echo -e "$line" | cut -f 2`
 	output_workflow="`echo $output_path`/`echo $genome | cut -d "." -f 1`"
 	
-	echo -e "\nLaunching GetRegFlow fot $genome\n"
+	echo -e "\nLaunching GetRegFlow for $genome\n"
 
 	vars=`echo "
 	\\$genome_file='/mnt/home/users/pab_001_uma/josecordoba/proyectos/lenguado/determinacion_sexo/second_launch/reference_second_launch/'$genome,
@@ -35,7 +32,7 @@ while IFS= read line; do
 	
 	if [ $1 == '1' ]; then	
 	
-		AutoFlow -w $actual_dir/Templates/supporting_regions_template.af -o $output_workflow -m 16 -c 1 -s -V $vars $2
+		AutoFlow -w $actual_dir/Templates/mapping_comparison_template.af -o $output_workflow -m 16 -c 1 -s -V $vars $2
 	
 	elif [ $1 == '2' ]; then
 	
