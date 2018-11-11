@@ -9,18 +9,18 @@
 output_path=$SCRATCH'/leng/new_det_sex'
 actual_dir=`pwd`
 
-
+ 
 while IFS= read reference; do
 
 	output_workflow="`echo $output_path`/`echo $reference | cut -d "." -f 1`"
 	
 	echo -e "\nLaunching GetRegFlow for $reference\n"
-
+ #Comment
 	vars=`echo "
 	\\$genome_file=$actual_dir/references/$reference,
 	\\$samples_path=$actual_dir/samples,
 	\\$samples=[male_1_aqg_pair;male_2_aqg_pair;female_1_aqg_pair;female_2_aqg_pair],
-	\\$chunks=10,
+	\\$chunks=40,
 	\\$path_target=$actual_dir/target,
 	" | tr -d [:space:]`
 	
@@ -47,5 +47,5 @@ while IFS= read reference; do
 	#$actual_dir/mapping_comparison.sh 2 $genome $target $output_workflow
 	#$actual_dir/mapping_comparison.sh r $genome $target $output_workflow
 
-done < regions.list
+done < genomes.list
 	
